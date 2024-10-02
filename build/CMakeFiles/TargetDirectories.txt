@@ -1,0 +1,3 @@
+/home/asice-cloud/projects/corcpp/useful/mine/build/CMakeFiles/static_reflect.dir
+/home/asice-cloud/projects/corcpp/useful/mine/build/CMakeFiles/edit_cache.dir
+/home/asice-cloud/projects/corcpp/useful/mine/build/CMakeFiles/rebuild_cache.dir
