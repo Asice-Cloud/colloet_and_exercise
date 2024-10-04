@@ -53,7 +53,6 @@ build CMakeFiles/static_reflect.dir/static_reflect.cpp.o.ddi: CXX_SCAN__static_r
   DEP_FILE = CMakeFiles/static_reflect.dir/static_reflect.cpp.o.ddi.d
   DYNDEP_INTERMEDIATE_FILE = CMakeFiles/static_reflect.dir/static_reflect.cpp.o.ddi
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -isystem /usr/include/jsoncpp
   OBJ_FILE = CMakeFiles/static_reflect.dir/static_reflect.cpp.o
   PREPROCESSED_OUTPUT_FILE = CMakeFiles/static_reflect.dir/static_reflect.cpp.o.ddi.i
 
@@ -61,7 +60,6 @@ build CMakeFiles/static_reflect.dir/static_reflect.cpp.o: CXX_COMPILER__static_r
   DEP_FILE = CMakeFiles/static_reflect.dir/static_reflect.cpp.o.d
   DYNDEP_MODULE_MAP_FILE = CMakeFiles/static_reflect.dir/static_reflect.cpp.o.modmap
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
-  INCLUDES = -isystem /usr/include/jsoncpp
   OBJECT_DIR = CMakeFiles/static_reflect.dir
   OBJECT_FILE_DIR = CMakeFiles/static_reflect.dir
   dyndep = CMakeFiles/static_reflect.dir/CXX.dd
@@ -76,9 +74,9 @@ build CMakeFiles/static_reflect.dir/CXX.dd | /home/asice-cloud/projects/corcpp/u
 #############################################
 # Link the executable static_reflect
 
-build static_reflect: CXX_EXECUTABLE_LINKER__static_reflect_Debug CMakeFiles/static_reflect.dir/static_reflect.cpp.o | /usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.9.5
+build static_reflect: CXX_EXECUTABLE_LINKER__static_reflect_Debug CMakeFiles/static_reflect.dir/static_reflect.cpp.o
   FLAGS = -g
-  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.9.5
+  LINK_LIBRARIES = -ljsoncpp
   OBJECT_DIR = CMakeFiles/static_reflect.dir
   POST_BUILD = :
   PRE_LINK = :

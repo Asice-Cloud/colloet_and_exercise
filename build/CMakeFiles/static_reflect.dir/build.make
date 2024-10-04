@@ -69,28 +69,28 @@ include CMakeFiles/static_reflect.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/static_reflect.dir/flags.make
 
-CMakeFiles/static_reflect.dir/reflect.cpp.o: CMakeFiles/static_reflect.dir/flags.make
-CMakeFiles/static_reflect.dir/reflect.cpp.o: /home/asice-cloud/projects/corcpp/useful/mine/reflect.cpp
-CMakeFiles/static_reflect.dir/reflect.cpp.o: CMakeFiles/static_reflect.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/asice-cloud/projects/corcpp/useful/mine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/static_reflect.dir/reflect.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_reflect.dir/reflect.cpp.o -MF CMakeFiles/static_reflect.dir/reflect.cpp.o.d -o CMakeFiles/static_reflect.dir/reflect.cpp.o -c /home/asice-cloud/projects/corcpp/useful/mine/reflect.cpp
+CMakeFiles/static_reflect.dir/static_reflect.cpp.o: CMakeFiles/static_reflect.dir/flags.make
+CMakeFiles/static_reflect.dir/static_reflect.cpp.o: /home/asice-cloud/projects/corcpp/useful/mine/static_reflect.cpp
+CMakeFiles/static_reflect.dir/static_reflect.cpp.o: CMakeFiles/static_reflect.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/asice-cloud/projects/corcpp/useful/mine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/static_reflect.dir/static_reflect.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/static_reflect.dir/static_reflect.cpp.o -MF CMakeFiles/static_reflect.dir/static_reflect.cpp.o.d -o CMakeFiles/static_reflect.dir/static_reflect.cpp.o -c /home/asice-cloud/projects/corcpp/useful/mine/static_reflect.cpp
 
-CMakeFiles/static_reflect.dir/reflect.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/static_reflect.dir/reflect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/asice-cloud/projects/corcpp/useful/mine/reflect.cpp > CMakeFiles/static_reflect.dir/reflect.cpp.i
+CMakeFiles/static_reflect.dir/static_reflect.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/static_reflect.dir/static_reflect.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/asice-cloud/projects/corcpp/useful/mine/static_reflect.cpp > CMakeFiles/static_reflect.dir/static_reflect.cpp.i
 
-CMakeFiles/static_reflect.dir/reflect.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/static_reflect.dir/reflect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/asice-cloud/projects/corcpp/useful/mine/reflect.cpp -o CMakeFiles/static_reflect.dir/reflect.cpp.s
+CMakeFiles/static_reflect.dir/static_reflect.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/static_reflect.dir/static_reflect.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/asice-cloud/projects/corcpp/useful/mine/static_reflect.cpp -o CMakeFiles/static_reflect.dir/static_reflect.cpp.s
 
 # Object files for target static_reflect
 static_reflect_OBJECTS = \
-"CMakeFiles/static_reflect.dir/reflect.cpp.o"
+"CMakeFiles/static_reflect.dir/static_reflect.cpp.o"
 
 # External object files for target static_reflect
 static_reflect_EXTERNAL_OBJECTS =
 
-static_reflect: CMakeFiles/static_reflect.dir/reflect.cpp.o
+static_reflect: CMakeFiles/static_reflect.dir/static_reflect.cpp.o
 static_reflect: CMakeFiles/static_reflect.dir/build.make
 static_reflect: /usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.9.5
 static_reflect: CMakeFiles/static_reflect.dir/link.txt

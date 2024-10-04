@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-        "CMakeFiles/static_reflect.dir/reflect.cpp.o"
-        "CMakeFiles/static_reflect.dir/reflect.cpp.o.d"
+        "CMakeFiles/static_reflect.dir/static_reflect.cpp.o"
+        "CMakeFiles/static_reflect.dir/static_reflect.cpp.o.d"
         "static_reflect"
         "static_reflect.pdb"
 )

@@ -31,7 +31,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -45,50 +45,18 @@
 					"fragment" : "-g -std=gnu++23 -fdiagnostics-color=always"
 				}
 			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"isSystem" : true,
-					"path" : "/usr/include/jsoncpp"
-				}
-			],
 			"language" : "CXX",
 			"languageStandard" : 
 			{
 				"backtraces" : 
 				[
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2,
-					2
+					1
 				],
 				"standard" : "23"
 			},
 			"sourceIndexes" : 
 			[
-				1
+				2
 			]
 		}
 	],
@@ -107,7 +75,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libjsoncpp.so.1.9.5",
+				"fragment" : "-ljsoncpp",
 				"role" : "libraries"
 			}
 		],
@@ -126,14 +94,15 @@
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				1
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1
+				2
 			]
 		}
 	],
@@ -142,6 +111,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "static_reflect.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "static_reflect_json.h",
 			"sourceGroupIndex" : 0
 		},
 		{

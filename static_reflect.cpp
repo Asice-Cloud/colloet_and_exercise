@@ -1,36 +1,58 @@
-#include<jsoncpp/json/json.h>
-#include<iostream>
-#include"static_reflect.h"
+#include "static_reflect.h"
+#include "static_reflect_json.h"
+#include <iostream>
+#include<vector>
 
-//user code below:
-struct Admin
-{
+struct Address {
+	std::string country;
+	std::string field;
+	std::string city;
+
+	void show() {
+		std::cout << "Country: " << country << '\n';
+		std::cout << "Field: " << field << '\n';
+		std::cout << "City: " << city << '\n';
+	}
+
+	std::string to_str() const { return country + " " + field + " " + city; }
+
+	static void test() { std::cout << "static function test\n"; }
+
+	REFLECT(country, field, city, show, to_str, test);
+};
+
+struct Student {
 	std::string name;
-	int code;
-	int sex;
+	int age;
+	Address addr;
+
+	REFLECT(name, age, addr);
 };
 
-REFLECT_EXTERNAL(Admin, name, code, sex);
+int main() {
+	Student stu = {.name = "Reissiya Rin",
+				   .age = 20,
+				   .addr = {
+		.country = "SierruEua",
+		.field = "convergence/crossing",
+		.city = "Cloud",
+	}};
 
-struct Advent
-{
-	std::string symbol;
-	int stage;
-	REFLECT_INTERNAL(symbol,stage)
-};
+	std::string binary = reflect_json::serialize(stu);
+	std::cout << binary << '\n';
+	auto stuDes = reflect_json::deserialize<Student>(binary);
 
-int main()
-{
-	Admin admin = {
-		.name = "asice",
-		.code = 42,
-		.sex = 2,
-	};
-	std::cout << serilize(admin) << std::endl;
+	std::cout << stuDes.name << '\n';
+	std::cout << stuDes.age << '\n';
+	std::cout << stuDes.addr.country << '\n';
+	std::cout << stuDes.addr.field << '\n';
+	std::cout << stuDes.addr.city << '\n';
 
-	Advent advent = {
-		.symbol = "crimson",
-		.stage = 6,
-	};
-	std::cout << serilize(advent) << std::endl;
+	auto vec =
+		reflect_json::deserialize<std::vector<int>>(R"json([1, 2, 3])json");
+	std::cout << vec.at(0) << '\n';
+	std::cout << vec.at(1) << '\n';
+	std::cout << vec.at(2) << '\n';
+
+	return 0;
 }

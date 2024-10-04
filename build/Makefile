@@ -129,29 +129,29 @@ static_reflect/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/build
 .PHONY : static_reflect/fast
 
-reflect.o: reflect.cpp.o
-.PHONY : reflect.o
+static_reflect.o: static_reflect.cpp.o
+.PHONY : static_reflect.o
 
 # target to build an object file
-reflect.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/reflect.cpp.o
-.PHONY : reflect.cpp.o
+static_reflect.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/static_reflect.cpp.o
+.PHONY : static_reflect.cpp.o
 
-reflect.i: reflect.cpp.i
-.PHONY : reflect.i
+static_reflect.i: static_reflect.cpp.i
+.PHONY : static_reflect.i
 
 # target to preprocess a source file
-reflect.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/reflect.cpp.i
-.PHONY : reflect.cpp.i
+static_reflect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/static_reflect.cpp.i
+.PHONY : static_reflect.cpp.i
 
-reflect.s: reflect.cpp.s
-.PHONY : reflect.s
+static_reflect.s: static_reflect.cpp.s
+.PHONY : static_reflect.s
 
 # target to generate assembly for a file
-reflect.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/reflect.cpp.s
-.PHONY : reflect.cpp.s
+static_reflect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/static_reflect.dir/build.make CMakeFiles/static_reflect.dir/static_reflect.cpp.s
+.PHONY : static_reflect.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... static_reflect"
-	@echo "... reflect.o"
-	@echo "... reflect.i"
-	@echo "... reflect.s"
+	@echo "... static_reflect.o"
+	@echo "... static_reflect.i"
+	@echo "... static_reflect.s"
 .PHONY : help
 
 
