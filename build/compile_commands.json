@@ -1,8 +1,0 @@
-[
-  {
-    "directory": "/home/asice-cloud/projects/corcpp/useful/mine/build",
-    "command": "/usr/bin/c++  -isystem /usr/include/jsoncpp -g -std=gnu++23 -o CMakeFiles/static_reflect.dir/static_reflect.cpp.o -c /home/asice-cloud/projects/corcpp/useful/mine/static_reflect.cpp",
-    "file": "/home/asice-cloud/projects/corcpp/useful/mine/static_reflect.cpp",
-    "output": "CMakeFiles/static_reflect.dir/static_reflect.cpp.o"
-  }
-]
