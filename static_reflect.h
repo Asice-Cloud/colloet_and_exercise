@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include <stdexcept>
 #include <type_traits>
 #include <utility>
@@ -305,72 +306,72 @@ template <class T, class MemberType>
     return ret;
 }
 
-// template <class FuncSig>
-// struct _get_function_static_visitor;
-//
-// template <class RetType, class ...Args>
-// struct _get_function_static_visitor<RetType(Args...)> {
-//     std::string const &name;
-//     std::function<RetType(Args...)> ret;
-//
-//     template <class U>
-//     std::enable_if_t<get_member_kind<U>::value == member_kind::static_function
-//     && std::is_convertible<decltype(std::declval<U>()(std::declval<Args>()...)), RetType>::value>
-//     constexpr operator()(const char *that_name, U member) const {
-//         if (name == that_name) {
-//             ret = member;
-//         }
-//     }
-//
-//     constexpr void operator()(...) const {}
-// };
-//
-// template <class FuncSig, class T>
-// struct _get_function_member_visitor;
-//
-// template <class RetType, class ...Args, class T>
-// struct _get_function_member_visitor<RetType(Args...), T> {
-//     T &&object;
-//     std::string const &name;
-//     std::function<RetType(Args...)> ret;
-//
-//     template <class U>
-//     std::enable_if_t<get_member_kind<U>::value == member_kind::member_function
-//     && std::is_convertible<decltype((object.*std::declval<U>())(std::declval<Args>()...)), RetType>::value>
-//     constexpr operator()(const char *that_name, U member) const {
-//         if (name == that_name) {
-//             ret = [&object = std::forward<T>(object), member] (auto &&...args) {
-//                 return (object.*member)(std::forward<decltype(args)>(args)...);
-//             };
-//         }
-//     }
-//
-//     template <class U>
-//     std::enable_if_t<get_member_kind<U>::value == member_kind::static_function
-//     && std::is_convertible<decltype((*std::declval<U>())(std::declval<Args>()...)), RetType>::value>
-//     constexpr operator()(const char *that_name, U member) const {
-//         if (name == that_name) {
-//             ret = [object = std::forward<T>(object), member] (auto &&...args) {
-//                 return (*member)(std::forward<decltype(args)>(args)...);
-//             };
-//         }
-//     }
-//
-//     constexpr void operator()(...) const {}
-// };
-//
-// template <class T, class FuncSig>
-// [[nodiscard]] constexpr std::function<FuncSig> get_static_function(std::string const &name) {
-//     _get_function_static_visitor<FuncSig> visitor{name, nullptr};
-//     reflect::foreach_member_ptr<T>(visitor);
-//     return visitor.ret;
-// }
-//
-// template <class FuncSig, class T>
-// [[nodiscard]] constexpr std::function<FuncSig> get_function(T &&object, std::string const &name) {
-//     _get_function_member_visitor<FuncSig, T> visitor{std::forward<T>(object), name, nullptr};
-//     reflect::foreach_member_ptr<T>(visitor);
-//     return visitor.ret;
-// }
+template <class FuncSig>
+struct _get_function_static_visitor;
+
+template <class RetType, class ...Args>
+struct _get_function_static_visitor<RetType(Args...)> {
+    std::string const &name;
+    std::function<RetType(Args...)> ret;
+
+    template <class U>
+    std::enable_if_t<get_member_kind<U>::value == member_kind::static_function
+    && std::is_convertible<decltype(std::declval<U>()(std::declval<Args>()...)), RetType>::value>
+    constexpr operator()(const char *that_name, U member) const {
+        if (name == that_name) {
+            ret = member;
+        }
+    }
+
+    constexpr void operator()(...) const {}
+};
+
+template <class FuncSig, class T>
+struct _get_function_member_visitor;
+
+template <class RetType, class ...Args, class T>
+struct _get_function_member_visitor<RetType(Args...), T> {
+    T &&object;
+    std::string const &name;
+    std::function<RetType(Args...)> ret;
+
+    template <class U>
+    std::enable_if_t<get_member_kind<U>::value == member_kind::member_function
+    && std::is_convertible<decltype((object.*std::declval<U>())(std::declval<Args>()...)), RetType>::value>
+    constexpr operator()(const char *that_name, U member) const {
+        if (name == that_name) {
+            ret = [&object = std::forward<T>(object), member] (auto &&...args) {
+                return (object.*member)(std::forward<decltype(args)>(args)...);
+            };
+        }
+    }
+
+    template <class U>
+    std::enable_if_t<get_member_kind<U>::value == member_kind::static_function
+    && std::is_convertible<decltype((*std::declval<U>())(std::declval<Args>()...)), RetType>::value>
+    constexpr operator()(const char *that_name, U member) const {
+        if (name == that_name) {
+            ret = [object = std::forward<T>(object), member] (auto &&...args) {
+                return (*member)(std::forward<decltype(args)>(args)...);
+            };
+        }
+    }
+
+    constexpr void operator()(...) const {}
+};
+
+template <class T, class FuncSig>
+[[nodiscard]] constexpr std::function<FuncSig> get_static_function(std::string const &name) {
+    _get_function_static_visitor<FuncSig> visitor{name, nullptr};
+    reflect::foreach_member_ptr<T>(visitor);
+    return visitor.ret;
+}
+
+template <class FuncSig, class T>
+[[nodiscard]] constexpr std::function<FuncSig> get_function(T &&object, std::string const &name) {
+    _get_function_member_visitor<FuncSig, T> visitor{std::forward<T>(object), name, nullptr};
+    reflect::foreach_member_ptr<T>(visitor);
+    return visitor.ret;
+}
 
 }

@@ -9,20 +9,21 @@
 #include <string>
 #include <memory>
 #include <sstream>
+#include <cxxabi.h>
 #include <utility>
 #include <jsoncpp/json/json.h>
 #include "static_reflect.h"
 
 namespace reflect_json {
 
-inline std::string jsonToStr(Json::Value root) {
+/*inline std::string jsonToStr(Json::Value root) {
     Json::StreamWriterBuilder builder;
     builder["indentation"] = "";
     std::unique_ptr<Json::StreamWriter> writer(builder.newStreamWriter());
     std::ostringstream os;
     writer->write(root, &os);
     return os.str();
-}
+}*/
 
 inline Json::Value strToJson(std::string const &json) {
     Json::Value root;
@@ -50,10 +51,21 @@ Json::Value objToJson(T const &object) {
 
 template <class T>requires(reflect::has_member<T>())
 //template <class T, std::enable_if_t<reflect::has_member<T>(), int> = 0>
-Json::Value objToJson(T const &object) {
+    Json::Value objToJson(T const &object) {
     Json::Value root;
-    reflect::foreach_member(object, [&](const char *key, auto &value) {
-        root[key] = objToJson(value);
+    reflect::foreach_member(object, [&](const char *key, auto &res) {
+        using MemberType = std::decay_t<decltype(res)>;
+        if constexpr (std::is_function_v<MemberType> || std::is_pointer_v<MemberType>) {
+            int status = 0;
+            std::unique_ptr<char, void(*)(void*)> demangled(
+                abi::__cxa_demangle(typeid(MemberType).name(), nullptr, nullptr, &status),
+                std::free
+            );
+            std::string signature = (status == 0) ? demangled.get() : typeid(MemberType).name();
+            root[key] = objToJson(signature); // Serialize function pointers as a string
+        } else {
+            root[key] = objToJson(res);
+        }
     });
     return root;
 }
@@ -72,10 +84,13 @@ T jsonToObj(Json::Value const &root) {
 
 template <class T>requires(reflect::has_member<T>())
 //template <class T, std::enable_if_t<reflect::has_member<T>(), int> = 0>
-T jsonToObj(Json::Value const &root) {
-    T object;
+    T jsonToObj(Json::Value const &root) {
+    T object{};
     reflect::foreach_member(object, [&](const char *key, auto &value) {
-        value = jsonToObj<std::decay_t<decltype(value)>>(root[key]);
+        using MemberType = std::decay_t<decltype(value)>;
+        if constexpr (!std::is_function<MemberType>::value && !std::is_pointer<MemberType>::value) {
+            value = jsonToObj<MemberType>(root[key]);
+        }
     });
     return object;
 }
@@ -124,7 +139,9 @@ struct special_traits<std::map<K, V, Alloc>> {
 
 template <class T>
 std::string serialize(T const &object) {
-    return jsonToStr(objToJson(object));
+    //print in compact mode
+    // return jsonToStr(objToJson(object));
+    return objToJson(object).toStyledString();
 }
 
 template <class T>
