@@ -2,8 +2,8 @@
 
 #include <map>
 #include <chrono>
-#include "callback.hpp"
-#include "stop_source.hpp"
+#include "callback.h"
+#include "stop_source.h"
 
 struct timer_context {
     struct _timer_entry {

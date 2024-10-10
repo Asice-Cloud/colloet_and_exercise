@@ -3,9 +3,9 @@
 #include <map>
 #include <memory>
 #include <string>
-#include "expected.hpp"
-#include "stop_source.hpp"
-#include "http_codec.hpp"
+#include "expected.h"
+#include "stop_source.h"
+#include "http_codec.h"
 
 struct http_client : std::enable_shared_from_this<http_client> {
     using pointer = std::shared_ptr<http_client>;

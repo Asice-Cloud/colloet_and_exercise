@@ -8,9 +8,9 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <system_error>
-#include "timer_context.hpp"
-#include "bytes_buffer.hpp"
-#include "expected.hpp"
+#include "timer_context.h"
+#include "bytes_buffer.h"
+#include "expected.h"
 #include <cassert>
 #include <array>
 

@@ -11,5 +11,5 @@
 #include <bearssl_rsa.h>
 #include <bearssl_ssl.h>
 #include <bearssl_x509.h>
-#include <bearssl/impl.hpp>
+#include <bearssl/impl.h>
 #endif

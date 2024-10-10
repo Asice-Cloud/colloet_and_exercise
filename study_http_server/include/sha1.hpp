@@ -1,5 +1,5 @@
 /*
-    sha1.hpp - source code of
+    sha1.h - source code of
 
     ============
     SHA-1 in C++

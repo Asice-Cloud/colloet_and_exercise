@@ -14,6 +14,6 @@
 #pragma GCC diagnostic ignored "-Wzero-as-null-pointer-constant"
 #pragma GCC diagnostic ignored "-Wimplicit-fallthrough"
 
-#include <bearssl/bearssl.hpp>
+#include <bearssl/bearssl.h>
 
 #pragma GCC diagnostic pop

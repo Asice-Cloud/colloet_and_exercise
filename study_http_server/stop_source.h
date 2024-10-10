@@ -1,6 +1,6 @@
 #pragma once
 
-#include "callback.hpp"
+#include "callback.h"
 #include <memory>
 
 struct stop_source {

@@ -3,10 +3,10 @@
 #include <map>
 #include <memory>
 #include <string>
-#include "expected.hpp"
-#include "io_context.hpp"
-#include "stop_source.hpp"
-#include "http_codec.hpp"
+#include "expected.h"
+#include "io_context.h"
+#include "stop_source.h"
+#include "http_codec.h"
 
 struct http_server : std::enable_shared_from_this<http_server> {
     using pointer = std::shared_ptr<http_server>;
