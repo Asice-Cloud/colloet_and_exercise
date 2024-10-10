@@ -1,6 +1,6 @@
 #include <iostream>
 #include <pybind11/pybind11.h>
-#include "reflect.hpp"
+#include "../example_static_reflect.h"
 
 struct Address {
     std::string country;

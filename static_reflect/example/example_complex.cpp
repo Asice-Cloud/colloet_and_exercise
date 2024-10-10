@@ -1,4 +1,4 @@
-#include "reflect.hpp"
+#include "../example_static_reflect.h"
 #include <ios>
 #include <iostream>
 #include <jsoncpp/json/json.h>

@@ -12,7 +12,7 @@
 #include <cxxabi.h>
 #include <utility>
 #include <jsoncpp/json/json.h>
-#include "static_reflect.h"
+#include "example_static_reflect.h"
 
 namespace reflect_json {
 
